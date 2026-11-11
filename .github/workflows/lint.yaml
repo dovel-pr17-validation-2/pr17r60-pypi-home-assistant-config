@@ -1,0 +1,28 @@
+---
+name: Lint
+
+on:
+  push:
+    branches:
+      - main
+      - renovate/**
+  pull_request:
+    branches:
+      - main
+
+env:
+  PYTHON_VERSION: 3.14
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v7
+      - uses: chartboost/ruff-action@v1.0.0
+      - uses: codespell-project/actions-codespell@v2.2
+        with:
+          check_hidden: false
+          ignore_words_list: hass,iif

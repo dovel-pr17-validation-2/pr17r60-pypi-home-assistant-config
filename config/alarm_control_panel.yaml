@@ -1,0 +1,13 @@
+alarm_control_panel:
+  - platform: manual
+    name: Home Alarm
+    code: !secret alarm_code
+    code_arm_required: false
+    arming_time: 30
+    delay_time: 30
+    trigger_time: 600 # 10 minutes
+    armed_home:
+      arming_time: 0
+      delay_time: 30
+
+
